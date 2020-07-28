@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script  src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<meta charset="UTF-8">
+<title>Insert Coffee</title>
+</head>
+<body>
+
+            咖啡名稱:<input type="text" id="productName" value="ithome"/><br/>
+            售價:<input type="text" id="amount" value="200"/><br/>
+            描述:<input type="text" id="productImageUrl" value="https://ithelp.ithome.com.tw/images/ironman/11th/event/kv_event/kv-bg-addfly.png"/><br/>
+            確認:<input type="text" id="confirmUrl" value="http://localhost:8080"/><br/>
+            訂單編號:<input type="text" id="orderId" value="B858CB282617FB0956D960215C8E84D1CCF909C6"/><br/>
+            貨幣:<input type="text" id="currency" value="TWD"/><br/>
+          <input type="button" id="insert" onclick="insert()" value="Insert"/>
+          <input type="button" id="update" onclick="update()" value="update"/>
+          <input type="button" id="delete" onclick="jsdelete()" value="delete"/>
+          <div id="div1"> Result </div>
+   <script>
+          function insert(){
+              var cof=$("#productName").val();
+              var sal=$("#amount").val();
+              var tot=$("#productImageUrl").val();
+              var sup=$("#confirmUrl").val();
+              var pr=$("#orderId").val();
+              var cr=$("#currency").val();
+             
+              $.ajax({
+                  url: "https://sandbox-api-pay.line.me/v2/payments/request",
+                  data: {"productName":cof ,"amount":sal,"productImageUrl":tot,"confirmUrl":sup,"orderId":pr,"currency":cr},
+                  type: "post",
+                  dataType: 'html',
+                  success: function (msg) {
+                      $("#div1").html(msg);
+                  },
+                  error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.status);
+                      alert(thrownError);
+                  }
+              });
+          }
+          function update() 
+          {
+              var cof=$("#coffee").val();
+              var sal=$("#sale").val();
+              var tot=$("#total").val();
+              var sup=$("#supplier").val();
+              var pr=$("#price").val();
+            
+              $.ajax({
+                  url: "UpdateCoffeeServlet",
+                  data: {"coffee":cof ,"sale":sal,"total":tot},
+                  type: "post",
+                  dataType: 'html',
+                  success: function (msg) {
+                      $("#div1").html(msg);
+                  },
+                  error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.status);
+                      alert(thrownError);
+                  }
+              });
+          }
+          function jsdelete(){
+              var cof=$("#coffee").val();
+              var sal=$("#sale").val();
+              var tot=$("#total").val();
+              var sup=$("#supplier").val();
+              var pr=$("#price").val();
+             
+              $.ajax({
+                  url: "DeleteCoffeeServlet",
+                  data: {"coffee":cof },
+                  type: "post",
+                  dataType: 'html',
+                  success: function (msg) {
+                      $("#div1").html(msg);
+                  },
+                  error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.status);
+                      alert(thrownError);
+                  }
+              });
+          }
+   </script>   
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+    <!DOCTYPE html>
+<html>
+<head>
+<script  src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<meta charset="UTF-8">
+<title>usetable</title>
+</head>
+<body>
+
+            userId:<input type="text" id="userId" value="10"/><br/>
+            userName:<input type="text" id="userName" value="abc"/><br/>
+            createdBy:<input type="text" id="createdBy" value="asd"/><br/>
+          <input type="button" id="insert" onclick="insert()" value="Insert"/>
+          <input type="button" id="update" onclick="update()" value="update"/>
+          <input type="button" id="delete" onclick="jsdelete()" value="delete"/>
+          <div id="div1"> Result </div>
+   <script>
+          function insert(){
+              var cof=$("#userId").val();
+              var sal=$("#userName").val();
+              var tot=$("#createdBy").val();
+             
+              $.ajax({
+                  url: "UserTableServlet",
+                  data: {"userId":cof ,"userName":sal,"createdBy":tot},
+                  type: "post",
+                  dataType: 'html',
+                  success: function (msg) {
+                      $("#div1").html(msg);
+                  },
+                  error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.status);
+                      alert(thrownError);
+                  }
+              });
+          }
+          function update() 
+          {
+              var cof=$("#coffee").val();
+              var sal=$("#sale").val();
+              var tot=$("#total").val();
+              var sup=$("#supplier").val();
+              var pr=$("#price").val();
+            
+              $.ajax({
+                  url: "UpdateCoffeeServlet",
+                  data: {"coffee":cof ,"sale":sal,"total":tot},
+                  type: "post",
+                  dataType: 'html',
+                  success: function (msg) {
+                      $("#div1").html(msg);
+                  },
+                  error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.status);
+                      alert(thrownError);
+                  }
+              });
+          }
+          function jsdelete(){
+              var cof=$("#coffee").val();
+              var sal=$("#sale").val();
+              var tot=$("#total").val();
+              var sup=$("#supplier").val();
+              var pr=$("#price").val();
+             
+              $.ajax({
+                  url: "DeleteCoffeeServlet",
+                  data: {"coffee":cof },
+                  type: "post",
+                  dataType: 'html',
+                  success: function (msg) {
+                      $("#div1").html(msg);
+                  },
+                  error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.status);
+                      alert(thrownError);
+                  }
+              });
+          }
+   </script>   
+
+</body>
+</html>
