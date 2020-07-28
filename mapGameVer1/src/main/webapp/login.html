@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script  src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<meta charset="UTF-8">
+<title>frist_login</title>
+</head>
+<body>
+
+            username:<input type="text" id="username" value="jacky"/><br/>
+            password:<input type="text" id="password" value="1234"/><br/>
+          <input type="button" id="insert" onclick="Login()" value="點擊登入"/>
+          <div id="div1"> Result </div>
+   <script>
+          function Login(){
+              var use=$("#username").val();
+              var pass=$("#password").val();
+             
+              $.ajax({
+                  url: "PersonallnformationServlet",
+                  data: {"username":use ,"password":pass},
+                  type: "post",
+                  dataType: 'html',
+                  success: function (msg) {
+                      $("#div1").html(msg);
+                  },
+                  error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.status);
+                      alert(thrownError);
+                  }
+              });
+          }
+   </script>   
+
+</body>
+</html>
