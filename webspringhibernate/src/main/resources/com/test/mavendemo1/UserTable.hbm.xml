@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2020/7/24 ?U?? 11:37:36 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.test.mavendemo1.UserTable" table="user_table" catalog="bookstore" optimistic-lock="version">
+        <id name="userId" type="int">
+            <column name="user_id" />
+            <generator class="assigned" />
+        </id>
+        <property name="userName" type="string">
+            <column name="user_name" />
+        </property>
+        <property name="createdBy" type="string">
+            <column name="created_by" not-null="true" />
+        </property>
+        <property name="createdDate" type="date">
+            <column name="created_date" length="10" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

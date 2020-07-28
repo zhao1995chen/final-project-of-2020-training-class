@@ -1,0 +1,67 @@
+#payments
+Method: POST
+https://sandbox-api-pay.line.me/v2/payments/request
+https://localhost:8080/payments/request
+
+headers
+[
+{"key":"Content-Type","value":"application/json","description":""},
+{"key":"X-LINE-ChannelId","value":"參數","description":""},
+{"key":"X-LINE-ChannelSecret","value":"金鑰","description":""}
+]
+body:.json
+{
+	"amount": 100,
+	"productName": "ithome",
+	"productImageUrl": "https://ithelp.ithome.com.tw/images/ironman/11th/event/kv_event/kv-bg-addfly.png",
+	"confirmUrl": "http://localhost:8080",
+	"orderId": "B858CB282617FB0956D960215C8E84D1CCF909C6",
+	"currency": "TWD"
+}
+success path
+{
+    "returnCode": "0000",
+    "returnMessage": "Success.",
+    "info": {
+        "paymentUrl": {
+            "web": "https://sandbox-web-pay.line.me/web/payment/wait?transactionReserveId=TVQxd3Y0anBnZnY0cnB5OFVBbDNOWWJMRzZqUVowLzRSN2d5UjNLeWpoVEpOeU9FL2grVmJ4SkpvVy9RNUVpVw",
+            "app": "linesandbox://pay/payment/TVQxd3Y0anBnZnY0cnB5OFVBbDNOWWJMRzZqUVowLzRSN2d5UjNLeWpoVEpOeU9FL2grVmJ4SkpvVy9RNUVpVw"
+        },
+        "transactionId": 2020072300623421210,
+        "paymentAccessToken": "700946933574"
+    }
+}
+
+#Payment confirm
+Method: POST
+https://sandbox-api-pay.line.me/v2/payments/{transactionId}/confirm
+https://localhost:8080/payments/{transactionId}/confirm
+
+headers
+[
+{"key":"Content-Type","value":"application/json","description":""},
+{"key":"X-LINE-ChannelId","value":"參數","description":""},
+{"key":"X-LINE-ChannelSecret","value":"金鑰","description":""}
+]
+body:.json
+{
+	"amount": 100,
+	"currency": "TWD"
+}
+
+success path
+{
+    "returnCode": "0000",
+    "returnMessage": "Success.",
+    "info": {
+        "transactionId": 2020072300623421210,
+        "orderId": "1234",
+        "payInfo": [
+            {
+                "method": "CREDIT_CARD",
+                "amount": 100,
+                "maskedCreditCardNumber": "************1111"
+            }
+        ]
+    }
+}
