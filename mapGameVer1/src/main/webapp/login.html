@@ -7,19 +7,24 @@
 <title>frist_login</title>
 </head>
 <body>
-
+            pid:<input type="text" id="pid" value="1"/><br/>
             username:<input type="text" id="username" value="jacky"/><br/>
             password:<input type="text" id="password" value="1234"/><br/>
-          <input type="button" id="insert" onclick="Login()" value="點擊登入"/>
+            password:<input type="text" id="email" value="1234"/><br/>
+            password:<input type="text" id="payList" value="1234"/><br/>
+          <input type="button" id="insert" onclick="Login()" value="點擊創建"/>
           <div id="div1"> Result </div>
    <script>
           function Login(){
+              var id=$("#pid").val();
               var use=$("#username").val();
               var pass=$("#password").val();
+              var mail=$("#email").val();
+              var pay=$("#payList").val();
              
               $.ajax({
                   url: "PersonallnformationServlet",
-                  data: {"username":use ,"password":pass},
+                  data: {"pid":id,"username":use ,"password":pass,"email":mail,"payList":pay},
                   type: "post",
                   dataType: 'html',
                   success: function (msg) {

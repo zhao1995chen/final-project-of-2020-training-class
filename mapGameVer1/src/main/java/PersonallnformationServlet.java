@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import DAO.PersonallnformationDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(urlPatterns = {"/PersonallnformationServlet"})
 public class PersonallnformationServlet extends HttpServlet {
-
+    PersonallnformationDAO per =new PersonallnformationDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -39,6 +40,12 @@ public class PersonallnformationServlet extends HttpServlet {
             out.println("<title>Servlet PersonallnformationServlet</title>");            
             out.println("</head>");
             out.println("<body>");
+            String pid=request.getParameter("pid");
+            String userName=request.getParameter("username");
+            String email=request.getParameter("email");
+	    String password=request.getParameter("password");        
+            String payList=request.getParameter("payList"); 
+            per.Personallnformation(pid, userName, email,password,payList);
             out.println("<h1>Servlet PersonallnformationServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
