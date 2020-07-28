@@ -17,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Administrator
  */
-@WebServlet(urlPatterns = {"/PersonallnformationServlet"})
-public class PersonallnformationServlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/registeredServlet"})
+public class registeredServlet extends HttpServlet {
     PersonallnformationDAO per =new PersonallnformationDAO();
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,7 +37,7 @@ public class PersonallnformationServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet PersonallnformationServlet</title>");            
+            out.println("<title>registered</title>");            
             out.println("</head>");
             out.println("<body>");
             String pid=request.getParameter("pid");
@@ -46,7 +46,7 @@ public class PersonallnformationServlet extends HttpServlet {
 	    String password=request.getParameter("password");        
             String payList=request.getParameter("payList"); 
             per.Personallnformation(pid, userName, email,password,payList);
-            out.println("<h1>Servlet PersonallnformationServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>註冊成功，歡迎加入 " + userName + "玩家</h1>");
             out.println("</body>");
             out.println("</html>");
         }
