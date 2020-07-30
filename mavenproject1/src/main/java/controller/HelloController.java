@@ -6,10 +6,16 @@
 package controller;
 
 import DAO.PersonallnformationDAO;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Personallnformation;
 import model.User;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,36 +24,50 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class HelloController {
-        PersonallnformationDAO per =new PersonallnformationDAO();
+    PersonallnformationDAO per =new PersonallnformationDAO();
     @RequestMapping("/success")
-    public ModelAndView registerSuccess(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse) throws Exception {
+    public ModelAndView registerSuccess(Personallnformation user) throws Exception {
         ModelAndView mav = new ModelAndView("index");
-        mav.addObject("message", "註冊成功");
+        mav.addObject("message", "註冊成功或登入成功。");
         return mav;
     }
     @RequestMapping("/fail")
     public ModelAndView registerfail(javax.servlet.http.HttpServletRequest httpServletRequest, javax.servlet.http.HttpServletResponse httpServletResponse) throws Exception {
         ModelAndView mav = new ModelAndView("index");
-        mav.addObject("message", "註冊失敗");
+        mav.addObject("message", "註冊失敗或登入失敗。");
         return mav;
     }
-    @RequestMapping("/param")
-    public ModelAndView getParam(Personallnformation user) {
-        try{       
-        per.Percreate(user.getPid(),user.getUsername(), user.getEmail(), user.getPassword(), user.getPayList());
-        System.out.println(user.getPid());
-        System.out.println(user.getUsername());
-        System.out.println(user.getPassword());
-        System.out.println(user.getEmail());
-        System.out.println(user.getPayList());       
+    @RequestMapping("/register")
+    public ModelAndView getRegister(Personallnformation user) {  
+        for (String student : per.Percheck()) {        
+        if(user.getUsername().equals(student)){
+        ModelAndView mav = new ModelAndView("redirect:/fail");
+        return mav; 
+            }    
+        }
+        per.Percreate(user.getPid(),user.getUsername(), user.getEmail(), user.getPassword(), user.getPayList());  
         ModelAndView mav = new ModelAndView("redirect:/success");
         return mav;
-        }catch (Exception ex){
-            ModelAndView mav = new ModelAndView("redirect:/fail");
-            return mav;
-        }
     }
-
+    @RequestMapping("/login")
+    public ModelAndView getLogin(Personallnformation user) {         
+        if(per.PercheckP(user.getUsername(),user.getPassword())){
+        ModelAndView mav = new ModelAndView("redirect:/success");
+        return mav; 
+               
+        }
+        ModelAndView mav = new ModelAndView("redirect:/fail");
+        return mav;
+    }    
+    @RequestMapping("/sreach")
+    public ModelAndView getSreach(Personallnformation user) {         
+        ModelAndView mav = new ModelAndView("sreachsuccess", "list", per.Persearch());
+        /*for (Personallnformation personallnformation : ls) { 
+                mav.addObject("username", personallnformation.getUsername()); 
+                mav.addObject("password", personallnformation.getPassword()); 
+            }*/
+        return mav;
+    }
     /*@ModelAttribute
     public void model(Model model) {
         model.addAttribute("message", "注解成功");

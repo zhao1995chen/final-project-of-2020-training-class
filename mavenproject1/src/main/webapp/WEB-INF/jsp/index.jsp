@@ -14,5 +14,12 @@
     </head>
     <body>
     <h1>${message}</h1>
+    <h2>${username}</h2>
+<form action="/myweb/login.jsp" role="form">
+    <input type="submit" value="返回登入">
+</form>         
+<form action="/myweb/register.jsp" role="form">
+    <input type="submit" value="返回註冊">
+</form> 
     </body>
 </html>

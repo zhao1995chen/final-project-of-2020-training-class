@@ -7,13 +7,18 @@ package model;
 public class Personallnformation  implements java.io.Serializable {
 
 
-     private String pid;
-     private String username;
-     private String email;
-     private String password;
-     private String payList;
+    private String pid;
+    private String username;
+    private String email;
+    private String password;
+    private String payList;
 
-    public Personallnformation() {
+    public Personallnformation(){
+        
+    }
+    public Personallnformation(String username, String password) {
+       this.username = username;
+       this.password = password;               
     }
 
     public Personallnformation(String username, String email, String password, String payList) {

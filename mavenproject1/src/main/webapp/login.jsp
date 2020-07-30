@@ -4,16 +4,13 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>user_registered</title>
+    <title>user_Login</title>
 </head>
 <body>
-<form action="/myweb/register" role="form">
-    pid：<input type="text" name="pid" value="abc"><br/>
+<form action="/myweb/login" role="form">
     帳號：<input type="text" name="username" value="abc"><br/>
     密碼：<input type="text" name="password" value="abc"><br/>
-    email:<input type="text" name="email" value="abc"/><br/>
-    payList:<input type="text" name="payList" value="abc"/><br/>
-    <input type="submit" value="註冊">
+    <input type="submit" value="登入">
 </form>
 <form action="/myweb/sreach" role="form">
     <input type="submit" value="查詢">
