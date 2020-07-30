@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.journaldev.spring</groupId>
 	<artifactId>SpringMVCHibernate</artifactId>
-	<name>SpringMVCHibernate</name>
+	<name>mapGameLogin</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
