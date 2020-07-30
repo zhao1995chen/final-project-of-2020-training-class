@@ -12,16 +12,8 @@
         <param-name>welcome</param-name>
         <param-value>Listener Demo String</param-value>
     </context-param>
-    <context-param>
-        <param-name>catalogFileName</param-name>
-        <param-value>/WEB-INF/catalog.txt</param-value>
-    </context-param>
     <listener>
-        <listener-class>domain.InitializeProductList</listener-class>
-    </listener>
-    <listener>
-        <description>ServletContextListener, HttpSessionListener, HttpSessionAttributeListener</description>
-        <listener-class>Listener.MySessionListener</listener-class>
+        <listener-class>Listener.MyContecxtListener</listener-class>
     </listener>
     <servlet>
         <servlet-name>springMVC</servlet-name>
@@ -37,6 +29,19 @@
             30
         </session-timeout>
     </session-config>
+    <filter>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <!-- 设置编码格式 -->
+            <param-value>utf-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CharacterEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <welcome-file-list>
         <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
