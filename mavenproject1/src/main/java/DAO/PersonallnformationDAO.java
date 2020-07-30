@@ -5,6 +5,7 @@
  */
 package DAO;
 
+import antlr.StringUtils;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -38,9 +39,10 @@ public class PersonallnformationDAO {
         sessionFactoryObj = configObj.buildSessionFactory(serviceRegistryObj);
         return sessionFactoryObj;
     }
-    public void Percreate(String pid,String username, String email, String password, String payList){
+    public void Percreate(String username, String email, String password, String payList){
         System.out.println(".......Hibernate Maven Example.......\n");
-        try {
+        String pid ="p"+(int)(Math.random()*1000000)+1;
+        try {            
             sessionObj = buildSessionFactory().openSession();
             sessionObj.beginTransaction();
                 userObj = new Personallnformation();
@@ -51,7 +53,7 @@ public class PersonallnformationDAO {
                 userObj.setPayList(payList);
  
                 sessionObj.save(userObj);
-            
+            System.out.println(pid);
             System.out.println("\n.......Records Saved Successfully To The Database.......\n");
  
             // Committing The Transactions To The Database

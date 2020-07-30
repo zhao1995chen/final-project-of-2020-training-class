@@ -4,9 +4,17 @@
         <param-name>welcome</param-name>
         <param-value>Listener Demo String</param-value>
     </context-param>
+    <context-param>
+        <param-name>catalogFileName</param-name>
+        <param-value>/WEB-INF/catalog.txt</param-value>
+    </context-param>
     <listener>
-        <listener-class>Listener.MyContecxtListener</listener-class>
+        <listener-class>domain.InitializeProductList</listener-class>
     </listener>
+    <listener>
+        <description>ServletContextListener, HttpSessionListener, HttpSessionAttributeListener</description>
+        <listener-class>Listener.MySessionListener</listener-class>
+    </listener>    
     <servlet>
         <servlet-name>springMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

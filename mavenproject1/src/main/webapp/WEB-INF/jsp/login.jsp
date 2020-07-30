@@ -4,6 +4,8 @@
     Author     : admin
 --%>
 
+<%@page import="java.util.ArrayList"%>
+<%@page import="domain.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" isELIgnored="false"%>
 <!DOCTYPE html>
@@ -14,7 +16,6 @@
     </head>
     <body>
     <h1>${message}</h1>
-    <h2>${username}</h2>
 <form action="/myweb/login.jsp" role="form">
     <input type="submit" value="返回登入">
 </form>         

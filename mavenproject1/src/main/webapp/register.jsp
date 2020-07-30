@@ -8,7 +8,6 @@
 </head>
 <body>
 <form action="/myweb/register" role="form">
-    pid：<input type="text" name="pid" value="abc"><br/>
     帳號：<input type="text" name="username" value="abc"><br/>
     密碼：<input type="text" name="password" value="abc"><br/>
     email:<input type="text" name="email" value="abc"/><br/>
