@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 2020/7/28 ?U?? 08:08:16 by Hibernate Tools 4.3.1 -->
+<!-- Generated 2020/7/30 ?U?? 08:29:49 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="model.Personallnformation" table="personallnformation" catalog="mapgame" optimistic-lock="version">
         <id name="pid" type="string">

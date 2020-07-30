@@ -16,6 +16,8 @@
 <form action="/myweb/sreach" role="form">
     <input type="submit" value="查詢">
 </form>    
-
+<form action="/myweb/register" role="form">
+    <input type="submit" value="註冊">
+</form>    
 </body>
 </html>

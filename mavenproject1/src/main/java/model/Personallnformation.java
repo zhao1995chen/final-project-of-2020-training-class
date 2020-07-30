@@ -1,4 +1,6 @@
 package model;
+// Generated 2020/7/30 ¤U¤È 08:29:48 by Hibernate Tools 4.3.1
+
 
 
 /**
@@ -7,27 +9,22 @@ package model;
 public class Personallnformation  implements java.io.Serializable {
 
 
-    private String pid;
-    private String username;
-    private String email;
-    private String password;
-    private String payList;
+     private String pid;
+     private String username;
+     private String email;
+     private String password;
+     private String payList;
 
-    public Personallnformation(){
-        
-    }
-    public Personallnformation(String username, String password) {
-       this.username = username;
-       this.password = password;               
+    public Personallnformation() {
     }
 
-    public Personallnformation(String username, String email, String password, String payList) {
-       this.username = username;
-       this.email = email;
-       this.password = password;
-       this.payList = payList;
-    }
 	
+    public Personallnformation(String pid, String email, String password, String payList) {
+        this.pid = pid;
+        this.email = email;
+        this.password = password;
+        this.payList = payList;
+    }
     public Personallnformation(String pid, String username, String email, String password, String payList) {
        this.pid = pid;
        this.username = username;
