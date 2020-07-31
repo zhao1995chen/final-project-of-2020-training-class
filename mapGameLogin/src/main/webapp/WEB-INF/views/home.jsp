@@ -1,9 +1,3 @@
-<%-- 
-    Document   : home
-    Created on : 2020/7/31, 上午 12:26:16
-    Author     : admin
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

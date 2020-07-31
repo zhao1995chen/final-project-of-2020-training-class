@@ -63,7 +63,6 @@
                     <div class="col-xs-12 col-sm-5 col-md-4 login-sidebar">
                         <div class="login-container">
                             <p>輸入帳號:</p>
-
                             <div class="form-group form-group-default" id="emailGroup">
                                 <label>帳號</label>
                                 <div class="controls">
