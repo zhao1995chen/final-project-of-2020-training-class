@@ -1,4 +1,4 @@
-package com.journaldev.spring;
+package com.game.spring;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.journaldev.spring.model.Person;
-import com.journaldev.spring.service.PersonService;
+import com.game.spring.model.Person;
+import com.game.spring.service.PersonService;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -22,6 +22,7 @@ public class PersonController {
 
     private PersonService personService;
     private static final Logger logger = LoggerFactory.getLogger(PersonController.class);
+
     @Autowired(required = true)
     @Qualifier(value = "personService")
     public void setPersonService(PersonService ps) {
@@ -45,21 +46,31 @@ public class PersonController {
 
     @RequestMapping(value = "/person/add", method = RequestMethod.POST)
     public String addPerson(@ModelAttribute("person") Person p) {
-        for (String person : this.personService.PersonsCheck()) {            
-            if (p.getUsername().equals(person)) {
-                return "redirect:/persons";
+        if (p.getPid() == 0) {
+            for (String person : this.personService.PersonsCheck()) {
+                if (p.getUsername().equals(person)) {
+                    return "redirect:/persons";
+                }
             }
+            this.personService.addPerson(p);
+        } else {
+            for (String person : this.personService.PersonsCheck()) {
+                if (p.getUsername().equals(person)) {
+                    return "redirect:/persons";
+                }
+            }
+            this.personService.updatePerson(p);
         }
-        this.personService.addPerson(p);
         return "redirect:/jq";
-
     }
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loPerson(Model model) {
         model.addAttribute("person", new Person());
         model.addAttribute("listPersons", this.personService.listPersons());
         return "login";
     }
+
     @RequestMapping(value = "/login/in", method = RequestMethod.POST)
     public String inLoPerson(@ModelAttribute("person") Person p) {
         if (this.personService.PersonsLogin(p.getUsername(), p.getPassword())) {

@@ -1,4 +1,4 @@
-package com.journaldev.spring.model;
+package com.game.spring.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

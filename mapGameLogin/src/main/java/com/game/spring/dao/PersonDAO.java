@@ -1,8 +1,8 @@
-package com.journaldev.spring.dao;
+package com.game.spring.dao;
 
 import java.util.List;
 
-import com.journaldev.spring.model.Person;
+import com.game.spring.model.Person;
 
 public interface PersonDAO {
 
