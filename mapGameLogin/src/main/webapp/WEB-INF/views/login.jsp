@@ -3,7 +3,8 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <%@ page session="false" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<html lang="en"><head>
+<html lang="en">
+    <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="robots" content="none">
@@ -40,7 +41,9 @@
             }
         </style>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-        <script src="chrome-extension://jhffgcfmcckgmioipfnmbannkpncfipo/util.js"></script><script src="chrome-extension://jhffgcfmcckgmioipfnmbannkpncfipo/pagejs.js"></script></head>
+        <script src="chrome-extension://jhffgcfmcckgmioipfnmbannkpncfipo/util.js"></script>
+        <script src="chrome-extension://jhffgcfmcckgmioipfnmbannkpncfipo/pagejs.js"></script>
+    </head>
     <body class="login">
         <div class="container-fluid">
             <div class="row">

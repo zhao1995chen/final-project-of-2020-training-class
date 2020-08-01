@@ -83,12 +83,10 @@
                 <tr>
                     <td colspan="2">
                         <c:if test="${!empty person.username}">
-                            <input type="submit"
-                                   value="<spring:message text="確定修改"/>" />
+                            <input type="submit" value="<spring:message text="確定修改"/>" />
                         </c:if>
                         <c:if test="${empty person.username}">
-                            <input type="submit"
-                                   value="<spring:message text="確定註冊"/>" />
+                            <input type="submit" value="<spring:message text="確定註冊"/>" />
                         </c:if>
                     </td>
                 </tr>

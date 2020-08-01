@@ -40,7 +40,9 @@
             }
         </style>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-        <script src="chrome-extension://jhffgcfmcckgmioipfnmbannkpncfipo/util.js"></script><script src="chrome-extension://jhffgcfmcckgmioipfnmbannkpncfipo/pagejs.js"></script></head>
+        <script src="chrome-extension://jhffgcfmcckgmioipfnmbannkpncfipo/util.js"></script>
+        <script src="chrome-extension://jhffgcfmcckgmioipfnmbannkpncfipo/pagejs.js"></script>
+    </head>
     <body class="login">
         <div class="container-fluid">
             <div class="row">
