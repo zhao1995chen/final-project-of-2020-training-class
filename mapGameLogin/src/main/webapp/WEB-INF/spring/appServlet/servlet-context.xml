@@ -29,9 +29,9 @@
 		destroy-method="close">
 		<beans:property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
 		<beans:property name="url"
-			value="jdbc:mysql://nfms113.ddns.net:41614/mapgame?autoReconnect=true&amp;serverTimezone=CST" />
+			value="jdbc:mysql://localhost:3306/mapgame?autoReconnect=true&amp;serverTimezone=CST" />
 		<beans:property name="username" value="newuser" />
-		<beans:property name="password" value="~!JA+CKY+map+le@^^" />
+		<beans:property name="password" value="1234" />
 	</beans:bean>
 
 	<!-- Hibernate 4 SessionFactory Bean definition -->
