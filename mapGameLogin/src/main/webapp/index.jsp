@@ -53,7 +53,7 @@
                             <div class="logo-title-container">
                                 <img class="img-responsive pull-left flip logo hidden-xs animated fadeIn" src="http://admin.yutoshield.com/vendor/tcg/voyager/assets/images/logo-icon-light.png" alt="Logo Icon">
                                 <div class="copy animated fadeIn">
-                                    <h1>MapGmae登入</h1>
+                                    <h1>MapGame登入</h1>
                                     <p>User</p>
                                 </div>
                             </div> 
