@@ -39,7 +39,7 @@
 
 <script>
 import Districts from './assets/Districts.json';
-// import districts from './assets/OpenData_district-filter.json';
+import PostOffices from './assets/OpenData_PostOffice-filter.json';
 
 export default {
   name: 'App',
@@ -49,7 +49,13 @@ export default {
       city: '台北市',
       district: '中正區',
     },
+    postOffices: [],
   }),
+  created() {
+    // eslint-disable-next-line
+    console.log(PostOffices);
+    this.postOffices = Object.keys(PostOffices).map((key) => PostOffices[key]);
+  },
 };
 </script>
 
