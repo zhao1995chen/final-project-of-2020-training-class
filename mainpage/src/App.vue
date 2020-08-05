@@ -61,11 +61,19 @@ export default {
   },
   watch: {
     postoffices() {
-      this.addMarkers();
+      this.updateMap();
     },
   },
   methods: {
-    addMarkers() {
+    updateMap() {
+      // remove markers
+      this.OSMap.eachLayer((layer) => {
+        if (layer instanceof L.Marker) {
+          this.OSMap.removeLayer(layer);
+        }
+      });
+
+      // add markers
       this.postoffices.forEach((po) => {
         L.marker([po.latitude, po.longitude]).addTo(this.OSMap);
       });
