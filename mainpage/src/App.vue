@@ -53,6 +53,24 @@ export default {
     postOffices: [],
     OSMap: {},
   }),
+  computed: {
+    postoffices() {
+      return this.postOffices
+        .filter((po) => (po.city === this.select.city) && (po.district === this.select.district));
+    },
+  },
+  watch: {
+    postoffices() {
+      this.addMarkers();
+    },
+  },
+  methods: {
+    addMarkers() {
+      this.postoffices.forEach((po) => {
+        L.marker([po.latitude, po.longitude]).addTo(this.OSMap);
+      });
+    },
+  },
   created() {
     // eslint-disable-next-line
     console.log(PostOffices);
