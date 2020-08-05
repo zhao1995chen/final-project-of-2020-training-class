@@ -38,6 +38,7 @@
 </template>
 
 <script>
+import L from 'leaflet';
 import Districts from './assets/Districts.json';
 import PostOffices from './assets/OpenData_PostOffice-filter.json';
 
@@ -50,11 +51,23 @@ export default {
       district: '中正區',
     },
     postOffices: [],
+    OSMap: {},
   }),
   created() {
     // eslint-disable-next-line
     console.log(PostOffices);
     this.postOffices = Object.keys(PostOffices).map((key) => PostOffices[key]);
+  },
+  mounted() {
+    this.OSMap = L.map('map', {
+      center: [25.041956, 121.508791],
+      zoom: 18,
+    });
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+      maxZoom: 18,
+    }).addTo(this.OSMap);
   },
 };
 </script>
