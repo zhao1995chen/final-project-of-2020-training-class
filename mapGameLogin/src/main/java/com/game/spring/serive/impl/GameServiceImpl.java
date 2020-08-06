@@ -69,6 +69,7 @@ public class GameServiceImpl implements GameService {
 			Person p = new Person();
 			p.setUsername(person.getName());
 			p.setPassword(person.getPassword());
+			p.setEmail(person.getEmail());
 			personDao.save(p);
 			result.setStatus(true);
 			return result;

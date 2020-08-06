@@ -23,6 +23,11 @@ public class PersonVO implements Serializable {
 	/**
 	 * 
 	 */
+	private String email;
+
+	/**
+	 * 
+	 */
 	private List<Permission> permissionList;
 
 	public String getName() {
@@ -39,6 +44,14 @@ public class PersonVO implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public List<Permission> getPermissionList() {
