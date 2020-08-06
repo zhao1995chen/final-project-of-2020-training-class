@@ -2,21 +2,30 @@ package com.game.spring.dao;
 
 import java.util.List;
 
-import com.game.spring.model.Person;
+import javax.transaction.Transactional;
 
-public interface PersonDAO {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
-    public void addPerson(Person p);
+import com.game.spring.entity.Person;
 
-    public void updatePerson(Person p);
+@Repository
+public interface PersonDao extends JpaRepository<Person, Long> {
 
-    public List<Person> listPersons();
+	//
+	public Person findByUsernameAndPassword(String Username, String Password);
 
-    public List<String> PersonsCheck();
+	//
+	public List<Person> findByUsername(String Username);
 
-    public Person getPersonById(int id);
+	//
+	@Query("from Person p where p.username=:username")
+	public Person findByHQL(@Param("username") String name);
 
-    public void removePerson(int id);
-
-    public boolean PersonsLogin(String a, String p);
+	//
+	@Query(value = "update Person p set p.username=:username where p.pid=:id ", nativeQuery = true)
+	public void updateOne(@Param("username") String userName, @Param("id") Integer id);
 }
