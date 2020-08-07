@@ -42,6 +42,13 @@ export default {
         }).addTo(this.OSMap);
       });
     },
+    randomLocation() {
+      const randomIndex = Math.floor(Math.random() * this.postOffices.length + 1);
+      const randomLocation = this.postOffices[randomIndex];
+      // eslint-disable-next-line
+      alert(`${randomIndex}`);
+      this.OSMap.flyTo(new L.LatLng(randomLocation.latitude, randomLocation.longitude));
+    },
   },
   created() {
     // eslint-disable-next-line
@@ -57,13 +64,9 @@ export default {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
         this.OSMap.flyTo(new L.LatLng(position.coords.latitude, position.coords.longitude));
-      }, (error) => {
-        // eslint-disable-next-line
-        alert(`ERROR( ${error.code} ): ${error.message}`);
-      });
+      }, this.randomLocation());
     } else {
-      // eslint-disable-next-line
-      alert('沒有定位功能');
+      this.randomLocation();
     }
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
