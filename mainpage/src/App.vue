@@ -41,6 +41,7 @@
 import L from 'leaflet';
 import Districts from './assets/Districts.json';
 import PostOffices from './assets/OpenData_PostOffice-filter.json';
+import shop from './assets/image/location/png/location(13).png';
 
 export default {
   name: 'App',
@@ -75,7 +76,12 @@ export default {
 
       // add markers
       this.postoffices.forEach((po) => {
-        L.marker([po.latitude, po.longitude]).addTo(this.OSMap);
+        L.marker([po.latitude, po.longitude], {
+          icon: new L.Icon({
+            iconUrl: shop,
+            iconSize: [75, 75],
+          }),
+        }).addTo(this.OSMap);
       });
     },
   },
