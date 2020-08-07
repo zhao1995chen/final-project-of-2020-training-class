@@ -54,6 +54,18 @@ export default {
       zoom: 18,
     });
 
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.OSMap.flyTo(new L.LatLng(position.coords.latitude, position.coords.longitude));
+      }, (error) => {
+        // eslint-disable-next-line
+        alert(`ERROR( ${error.code} ): ${error.message}`);
+      });
+    } else {
+      // eslint-disable-next-line
+      alert('沒有定位功能');
+    }
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
       maxZoom: 18,
