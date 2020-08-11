@@ -39,7 +39,7 @@ export default {
             iconUrl: shop,
             iconSize: [75, 75],
           }),
-        }).addTo(this.OSMap);
+        }).bindPopup(`<p><strong style="font-size: 20px;">${po.name}</strong></p>`).addTo(this.OSMap);
       });
     },
   },
@@ -64,6 +64,10 @@ export default {
 
 <style lang="scss">
 @import 'bootstrap/scss/bootstrap';
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: '微軟正黑體';
+}
 
 #map {
   height: 100vh;
