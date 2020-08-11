@@ -42,6 +42,11 @@ export default {
         }).addTo(this.OSMap);
       });
     },
+    randomLocation() {
+      const randomIndex = Math.floor(Math.random() * this.postOffices.length + 1);
+      const randomLocation = this.postOffices[randomIndex];
+      this.OSMap.flyTo(new L.LatLng(randomLocation.latitude, randomLocation.longitude));
+    },
   },
   created() {
     // eslint-disable-next-line
@@ -51,12 +56,21 @@ export default {
   mounted() {
     this.OSMap = L.map('map', {
       center: [25.041956, 121.508791],
-      zoom: 18,
+      zoom: 15,
     });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.OSMap.flyTo(new L.LatLng(position.coords.latitude, position.coords.longitude));
+      }, this.randomLocation());
+    } else {
+      this.randomLocation();
+    }
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-      maxZoom: 18,
+      maxZoom: 15,
+      minZoom: 15,
     }).addTo(this.OSMap);
   },
 };
