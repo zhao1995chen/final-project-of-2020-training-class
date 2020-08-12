@@ -12,6 +12,7 @@
 <script>
 import L from 'leaflet';
 import shop from './assets/image/location/png/location(13).png';
+import shop2 from './assets/image/location/png/location(6).png';
 
 const axios = require('axios');
 
@@ -19,19 +20,29 @@ export default {
   name: 'App',
   data: () => ({
     postOffices: [],
+    convenientStores: [],
     OSMap: {},
   }),
   async created() {
-    this.postOffices = await this.getPostOffices();
+    await this.getSpots();
     // eslint-disable-next-line
     console.log(2);
     // eslint-disable-next-line
     console.log(this.postOffices);
+    // eslint-disable-next-line
+    console.log(this.convenientStores);
     await this.initMap();
     await this.addMarkers();
   },
   methods: {
-    getPostOffices() {
+    getTime() {
+      const d = new Date();
+      const h = d.getHours();
+      const m = d.getMinutes();
+      const s = d.getSeconds();
+      return `${h}:${m}:${s}`;
+    },
+    getSpots() {
       return axios({
         method: 'get',
         baseURL: 'http://localhost:8088/mapGameLogin',
@@ -43,7 +54,10 @@ export default {
           console.log(1);
           // eslint-disable-next-line
           console.log(response.data.data.postoffices);
-          return response.data.data.postoffices;
+          // eslint-disable-next-line
+          console.log(response.data.data.sevens);
+          this.postOffices = response.data.data.postoffices;
+          this.convenientStores = response.data.data.sevens;
         })
         .catch((error) => {
           // eslint-disable-next-line
@@ -51,6 +65,7 @@ export default {
         });
     },
     initMap() {
+      console.log(`map start ${this.getTime()}`);
       this.OSMap = L.map('map', {
         center: [25.041956, 121.508791],
         zoom: 15,
@@ -69,8 +84,10 @@ export default {
         maxZoom: 15,
         minZoom: 15,
       }).addTo(this.OSMap);
+      console.log(`map end ${this.getTime()}`);
     },
     addMarkers() {
+      console.log(`marker start ${this.getTime()}`);
       this.postOffices.forEach((po) => {
         L.marker([po.latitude, po.longitude], {
           icon: new L.Icon({
@@ -79,6 +96,15 @@ export default {
           }),
         }).addTo(this.OSMap);
       });
+      this.convenientStores.forEach((cs) => {
+        L.marker([cs.longitude, cs.latitude], {
+          icon: new L.Icon({
+            iconUrl: shop2,
+            iconSize: [75, 75],
+          }),
+        }).addTo(this.OSMap);
+      });
+      console.log(`marker end ${this.getTime()}`);
     },
     randomLocation() {
       const randomIndex = Math.floor(Math.random() * this.postOffices.length + 1);
