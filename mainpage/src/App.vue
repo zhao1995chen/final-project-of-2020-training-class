@@ -13,20 +13,29 @@
 import L from 'leaflet';
 import PostOffices from './assets/OpenData_PostOffice-filter.json';
 import shop from './assets/image/location/png/location(13).png';
+import ConvenientStores from './assets/7-11 chainStores.json';
+import shop1 from './assets/image/location/png/location(24).png';
 
 export default {
   name: 'App',
   data: () => ({
     postOffices: [],
+    convenientStores: [],
     OSMap: {},
   }),
   computed: {
     postoffices() {
       return this.postOffices;
     },
+    convenientstores() {
+      return this.convenientStores;
+    },
   },
   watch: {
     postoffices() {
+      this.updateMap();
+    },
+    convenientstores() {
       this.updateMap();
     },
   },
@@ -37,16 +46,29 @@ export default {
         L.marker([po.latitude, po.longitude], {
           icon: new L.Icon({
             iconUrl: shop,
-            iconSize: [75, 75],
+            iconSize: [35, 35],
           }),
-        }).addTo(this.OSMap);
+        }).bindPopup(<p><strong style="font-size: 20px;">${po.name}</strong></p>).addTo(this.OSMap);
+      });
+      this.convenientStores.forEach((cs) => {
+        L.marker([cs.latitude, cs.longitude], {
+          icon: new L.Icon({
+            iconUrl: shop1,
+            iconSize: [35, 35],
+          }),
+        }).addTo(this.OSMap).bindPopup(<p><strong style="font-size: 20px;">${cs.name}</strong></p>);
       });
     },
   },
+
   created() {
     // eslint-disable-next-line
     console.log(PostOffices);
     this.postOffices = Object.keys(PostOffices).map((key) => PostOffices[key]);
+
+    // eslint-disable-next-line
+    console.log(ConvenientStores);
+    this.convenientStores = Object.keys(ConvenientStores).map((key) => ConvenientStores[key]);
   },
   mounted() {
     this.OSMap = L.map('map', {
