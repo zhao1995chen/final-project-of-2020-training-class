@@ -147,7 +147,35 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.16</version>
 		</dependency>
-
+		<!-- c3p0依賴 -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
+		</dependency>
+		<!-- JavaEE依賴 -->
+		<dependency>
+			<groupId>javaee</groupId>
+			<artifactId>javaee-api</artifactId>
+			<version>5</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		<!-- JavaMail相關依賴 -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>mail</artifactId>
+			<version>1.4.7</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.activation</groupId>
+			<artifactId>activation</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>

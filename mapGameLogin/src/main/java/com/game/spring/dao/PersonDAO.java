@@ -19,8 +19,13 @@ public interface PersonDao extends JpaRepository<Person, Long> {
 	public Person findByUsernameAndPassword(String Username, String Password);
 
 	//
-	public List<Person> findByUsername(String Username);
+	public Person findByUsernameAndEmail(String Username, String Email);
 
+	//
+	public Person findByUsername(String Username);
+
+	//
+	public List<Person> findByCode(String Code);
 	//
 	@Query("from Person p where p.username=:username")
 	public Person findByHQL(@Param("username") String name);
@@ -28,4 +33,8 @@ public interface PersonDao extends JpaRepository<Person, Long> {
 	//
 	@Query(value = "update Person p set p.username=:username where p.pid=:id ", nativeQuery = true)
 	public void updateOne(@Param("username") String userName, @Param("id") Integer id);
+	//
+	@Modifying
+	@Query(value = "update Person p set p.state=:state where p.code=:code ")
+	public int activeUser(@Param("state") int state, @Param("code") String code);
 }

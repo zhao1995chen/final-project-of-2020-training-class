@@ -13,7 +13,7 @@ public class PersonVO implements Serializable {
 	/**
 	 * name
 	 */
-	private String name;
+	private String username;
 
 	/**
 	 * 
@@ -24,18 +24,19 @@ public class PersonVO implements Serializable {
 	 * 
 	 */
 	private String email;
-
+	
 	/**
 	 * 
 	 */
-	private List<Permission> permissionList;
+	private Integer state;
 
-	public String getName() {
-		return name;
+
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getPassword() {
@@ -50,16 +51,17 @@ public class PersonVO implements Serializable {
 		return email;
 	}
 
-	public void setEmail(String email) {
+	public void setState(String email) {
 		this.email = email;
 	}
-
-	public List<Permission> getPermissionList() {
-		return permissionList;
+	
+	public Integer getState() {
+		return state;
 	}
 
-	public void setPermissionList(List<Permission> permissionList) {
-		this.permissionList = permissionList;
+	public void setState(Integer state) {
+		this.state = state;
 	}
+
 
 }

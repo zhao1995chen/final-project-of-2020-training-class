@@ -32,6 +32,12 @@ public class Person implements Serializable {
 	@Column(name = "password")
 	private String password;
 
+	@Column(name = "state")
+	private Integer state;	
+	
+	@Column(name = "code")
+	private String code;	
+	
 	public Integer getPid() {
 		return pid;
 	}
@@ -63,8 +69,26 @@ public class Person implements Serializable {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
+	public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
 	public String toString() {
-		return "pid="+pid+",username="+username+",password="+password+",email="+email;
+		return "pid="+pid+",username="+username+",password="+password+",email="+email+",state="+state+",code="+code;
 	}
 
 }

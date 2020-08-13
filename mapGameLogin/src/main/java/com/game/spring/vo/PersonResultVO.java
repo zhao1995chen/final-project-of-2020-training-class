@@ -12,19 +12,19 @@ public class PersonResultVO implements Serializable {
 	/**
 	 * 
 	 */
-	private String name;
+	private String username;
 
 	/**
 	 * 
 	 */
 	private Boolean status;
 
-	public String getName() {
-		return name;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public Boolean getStatus() {
