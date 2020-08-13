@@ -28,8 +28,8 @@ CREATE TABLE `seven` (
   `city` varchar(255) NOT NULL,
   `district` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
-  `longitude` double NOT NULL,
   `latitude` double NOT NULL,
+  `longitude` double NOT NULL,
   PRIMARY KEY (`cid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-11 18:39:41
+-- Dump completed on 2020-08-12 17:35:55
