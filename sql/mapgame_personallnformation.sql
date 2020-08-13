@@ -27,7 +27,9 @@ CREATE TABLE `personallnformation` (
   `username` varchar(20) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `password` varchar(20) NOT NULL,
-  PRIMARY KEY (`pid`)
+  PRIMARY KEY (`pid`),
+  KEY `pid` (`pid`),
+  CONSTRAINT `personallnformation_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `user` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -50,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-03  9:53:03
+-- Dump completed on 2020-08-11 18:39:43

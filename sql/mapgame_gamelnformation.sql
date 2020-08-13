@@ -24,16 +24,17 @@ DROP TABLE IF EXISTS `gamelnformation`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `gamelnformation` (
   `giid` int(10) NOT NULL,
-  `gameid` varchar(50) NOT NULL,
+  `nickname` varchar(50) NOT NULL,
   `level` int(10) NOT NULL,
   `hp` int(10) NOT NULL,
   `money` int(10) NOT NULL,
   `moveMoney` int(10) NOT NULL,
-  `position` varchar(50) DEFAULT NULL,
+  `position` varchar(20) DEFAULT NULL,
   `logintime` datetime DEFAULT NULL,
   `logouttime` datetime DEFAULT NULL,
   PRIMARY KEY (`giid`),
-  UNIQUE KEY `gameid` (`gameid`)
+  KEY `giid` (`giid`),
+  CONSTRAINT `gamelnformation_ibfk_1` FOREIGN KEY (`giid`) REFERENCES `user` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -43,7 +44,7 @@ CREATE TABLE `gamelnformation` (
 
 LOCK TABLES `gamelnformation` WRITE;
 /*!40000 ALTER TABLE `gamelnformation` DISABLE KEYS */;
-INSERT INTO `gamelnformation` VALUES (1,'gameid1',1,1,1,1,'psdition1','2011-01-01 01:01:01','2011-01-01 01:01:01'),(2,'gameid2',2,2,22,2,'psdition2','2012-02-05 02:02:02','2012-02-05 02:02:02'),(3,'gameid3',3,3,333,3,'psdition3','2013-03-03 03:03:03','2013-03-03 03:03:03'),(4,'gameid4',4,4,4444,4,'psdition4','2014-04-04 04:04:04','2014-04-04 04:04:04'),(5,'gameid5',5,5,55555,5,'psdition5','2015-05-05 05:05:05','2015-05-05 05:05:05');
+INSERT INTO `gamelnformation` VALUES (1,'gameid1',1,1,1,1,'10041','2011-01-01 01:01:01','2011-01-01 01:01:01'),(2,'gameid2',2,2,22,2,'10047','2012-02-02 02:02:02','2012-02-02 02:02:02'),(3,'gameid3',3,3,333,3,'10047','2013-03-03 03:03:03','2013-03-03 03:03:03'),(4,'gameid4',4,4,4444,4,'10047','2014-04-04 04:04:04','2014-04-04 04:04:04'),(5,'gameid5',5,5,55555,5,'10047','2015-05-05 05:05:05','2015-05-05 05:05:05');
 /*!40000 ALTER TABLE `gamelnformation` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-03  9:53:01
+-- Dump completed on 2020-08-11 18:39:41

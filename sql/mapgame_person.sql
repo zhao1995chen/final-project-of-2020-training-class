@@ -28,7 +28,7 @@ CREATE TABLE `person` (
   `password` varchar(45) NOT NULL,
   `email` varchar(90) DEFAULT NULL,
   PRIMARY KEY (`pid`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=110 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (1,'u1','p1','e1'),(99,'root','1234','root@gmail.com'),(100,'n99','p99','e99@gmail.com');
+INSERT INTO `person` VALUES (1,'u1','p1','e1'),(2,'boom888','1234','boom888@gmail.com'),(4,'test4','test4','test444'),(99,'root','1234','root@gmail.com'),(100,'n99','p99','e99@gmail.com'),(101,'test123','test123','test@'),(102,'n1','p1','e1'),(103,'n1','p1','e1'),(104,'n1','p1','e1'),(105,'n1','p1','e1'),(106,'n1','p1','e1'),(107,'ai1','p2','e1'),(108,'ai1','p2','e1'),(109,'ai1','p2','e1');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-03  9:53:02
+-- Dump completed on 2020-08-11 18:39:43

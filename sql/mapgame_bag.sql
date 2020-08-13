@@ -25,7 +25,9 @@ DROP TABLE IF EXISTS `bag`;
 CREATE TABLE `bag` (
   `bid` int(10) NOT NULL,
   `size` int(10) NOT NULL,
-  PRIMARY KEY (`bid`)
+  PRIMARY KEY (`bid`),
+  KEY `bid` (`bid`),
+  CONSTRAINT `bag_ibfk_1` FOREIGN KEY (`bid`) REFERENCES `user` (`uid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-03  9:53:01
+-- Dump completed on 2020-08-11 18:39:42
