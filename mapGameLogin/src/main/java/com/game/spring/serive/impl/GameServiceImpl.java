@@ -13,9 +13,12 @@ import com.game.spring.component.UserInitializer;
 import com.game.spring.dao.PersonDao;
 import com.game.spring.entity.Person;
 import com.game.spring.service.GameService;
-import com.game.spring.vo.Permission;
 import com.game.spring.vo.PersonResultVO;
 import com.game.spring.vo.PersonVO;
+
+import ecpay.payment.integration.AllInOne;
+import ecpay.payment.integration.domain.AioCheckOutALL;
+import ecpay.payment.integration.ecpayOperator.EcpayFunction;
 
 @Service
 public class GameServiceImpl implements GameService {
@@ -34,10 +37,6 @@ public class GameServiceImpl implements GameService {
 				PersonVO v = new PersonVO();
 				v.setName(p.getUsername());
 				v.setPassword(p.getPassword());
-				List<Permission> permissionList = new ArrayList<Permission>();
-				permissionList.add(new Permission("1112323", Arrays.asList("444", "22222")));
-				permissionList.add(new Permission("1112323", Arrays.asList("444", "22222")));
-				v.setPermissionList(permissionList);
 				resultList.add(v);
 			}
 		}
@@ -78,4 +77,27 @@ public class GameServiceImpl implements GameService {
 			return result;
 		}
 	}
+	//pay
+	private static void initial(){
+		all = new AllInOne("");
+	}
+		public static AllInOne all;
+		@Transactional(propagation = Propagation.REQUIRED)
+		@Override
+		public String toPay(AioCheckOutALL a) {		
+			initial();
+			a.setMerchantID("2000132");
+			a.setMerchantTradeNo(a.getMerchantTradeNo());
+			a.setMerchantTradeDate(a.getMerchantTradeDate());
+			a.setTotalAmount(a.getTotalAmount());
+			a.setTradeDesc(a.getTradeDesc());
+			a.setItemName("鑽石");
+			a.setOrderResultURL("http://localhost/mapGame/welcome.jsp");
+			a.setReturnURL("http://localhost/mapGame/welcome.jsp");
+			a.setItemURL("http://localhost/mapGame/welcome.jsp");
+			a.setClientBackURL("http://localhost/mapGame/welcome.jsp");
+			a.setNeedExtraPaidInfo("N");
+			String form = all.aioCheckOut(a, null);	
+			return form;
+		}
 }

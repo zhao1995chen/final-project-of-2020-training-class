@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="BIG5">
+<title>Insert title here</title>
+</head>
+<body>
+<div style="text-align:center;">
+  <form id="ECPayForm" method="POST" action="https://logistics-stage.ecpay.com.tw/Express/map" target="_self">
+    <input type="hidden" name="MerchantID" value="2000132" />
+    <input type="hidden" name="MerchantTradeNo" value="no20171226140813" />
+    <input type="hidden" name="LogisticsSubType" value="UNIMART" />
+    <input type="hidden" name="IsCollection" value="N" />
+    <input type="hidden" name="ServerReplyURL" value="http://www.sample.com.tw/logistics_dev/ServerReplyURL.php" />
+    <input type="hidden" name="ExtraData" value="測試額外資訊" />
+    <input type="hidden" name="Device" value="0" />
+    <input type="hidden" name="LogisticsType" value="CVS" />
+    <input type="submit" id="__paymentButton" value="選擇取件門市" />
+  </form>
+</div>
+</body>
+</html>

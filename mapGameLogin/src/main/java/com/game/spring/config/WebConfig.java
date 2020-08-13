@@ -57,7 +57,7 @@ public class WebConfig implements WebMvcConfigurer {
 	public DataSource getDataSource() {
 		BasicDataSource dbs = new BasicDataSource();
 		try {
-			dbs.setDriverClassName("com.mysql.jdbc.Driver");
+			dbs.setDriverClassName("com.mysql.cj.jdbc.Driver");
 			dbs.setUrl(
 					"jdbc:mysql://localhost:3306/mapgame?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC");
 			dbs.setUsername("root");
