@@ -1,5 +1,6 @@
 package com.game.spring.serive.impl;
 
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,6 +19,7 @@ import com.game.spring.vo.PersonVO;
 
 import ecpay.payment.integration.AllInOne;
 import ecpay.payment.integration.domain.AioCheckOutALL;
+import ecpay.payment.integration.domain.QueryTradeInfoObj;
 import ecpay.payment.integration.ecpayOperator.EcpayFunction;
 
 @Service
@@ -78,13 +80,13 @@ public class GameServiceImpl implements GameService {
 		}
 	}
 	//pay
-	private static void initial(){
+	private static void initial() throws UnsupportedEncodingException{
 		all = new AllInOne("");
 	}
 		public static AllInOne all;
 		@Transactional(propagation = Propagation.REQUIRED)
 		@Override
-		public String toPay(AioCheckOutALL a) {		
+		public String toPay(AioCheckOutALL a) throws UnsupportedEncodingException {		
 			initial();
 			a.setMerchantID("2000132");
 			a.setMerchantTradeNo(a.getMerchantTradeNo());
@@ -99,5 +101,13 @@ public class GameServiceImpl implements GameService {
 			a.setNeedExtraPaidInfo("N");
 			String form = all.aioCheckOut(a, null);	
 			return form;
+		}
+		@Transactional(propagation = Propagation.REQUIRED)
+		@Override	
+		public String payQuery(QueryTradeInfoObj q) throws UnsupportedEncodingException{
+			initial();
+			q.setMerchantTradeNo(q.getMerchantTradeNo());
+			System.out.println(all.queryTradeInfo(q));
+			return all.queryTradeInfo(q);
 		}
 }

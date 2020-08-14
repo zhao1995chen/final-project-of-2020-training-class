@@ -1,5 +1,6 @@
 package ecpay.payment.integration;
 
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,8 +59,9 @@ public class AllInOne extends AllInOneBase{
 	 * AllInOne Constructor
 	 * 參數帶入log4j.properties的路徑，若帶入空字串則預設不產生log
 	 * @param log4jPropertiesPath
+	 * @throws UnsupportedEncodingException 
 	 */
-	public AllInOne(String log4jPropertiesPath){
+	public AllInOne(String log4jPropertiesPath) throws UnsupportedEncodingException{
 		super();
 		if(log4jPropertiesPath != "" && log4jPropertiesPath != null){
 			if(log4jPropertiesPath.substring(log4jPropertiesPath.length()-1) == "/")

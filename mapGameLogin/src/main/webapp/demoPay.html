@@ -1,5 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -171,16 +169,18 @@
 
 			<script>
 				function submitAioCheckOut(){
-            $('#idReturnAioCheckOut').html('');
+            
 
             $.ajax({
-                url: server + '?a=Tools/EcPay&b=AioCheckOut',
+                url: "http://localhost/mapGame/Pay/toPay",
                 type: 'post',
                 async: false,
+                contentType:"application/json",
+                dataType: 'html',
                 data: $('#idFormAioCheckOut').serialize() +'&API_URL='+ $('#API_URL').val() +'&MerchantID='+ $('#MerchantID').val() +'&HashKey='+ $('#HashKey').val() +'&HashIV='+ $('#HashIV').val(),
                 success: function(J){
-                    var Json = JSON.parse(J);
-                    $('#idReturnAioCheckOut').html( Json['Data'] );
+                    
+                    $('#idReturnAioCheckOut').html(J);
                     $('#__ecpayForm').attr('target', '_blank').submit();
 //                    document.getElementById("__ecpayForm");
                 }

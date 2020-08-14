@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+</script>
+<meta charset="UTF-8">
+<title>qPAY</title>
+</head>
+<body>
+<form id="idFormAioCheckOut">
+	tradeDesc:
+	<input type="text" id="tradeDesc" value="Description" />
+	<br /> totalAmount:
+	<input type="text" id="totalAmount" value="200" />
+	<br /> merchantTradeDate:
+	<input type="text" id="TimeStamp" value="" />
+	<br /> merchantTradeNo:
+	<input type="text" id="merchantTradeNo" value="testCompasdAAS44" />
+	<br />
+	<input type="hidden" name="MerchantID" value="2000132" />
+	<input type="hidden" name="HashKey" value="5294y06JbISpM5x9" />
+	<input type="hidden" name="HashIV" value="v77hoKGq4kWxNNIS" />
+	
+	
+	</form>
+	<input type="button" id="insert" onclick="insert()" value="Insert" />
+	<form id="allPayAPI">123</form>
+	<script>
+          function insert(){
+              var sup=$("#merchantTradeNo").val();
+              var data = JSON.stringify({"merchantTradeNo":sup});
+              const dateTime = Date.now();
+              const timestamp = Math.floor(dateTime / 1000);
+              $('#idTimeStamp').val(timestamp);
+              $.ajax({
+                  url: "http://localhost/mapGame/Pay/payQuery",
+                  data: JSON.stringify({"merchantTradeNo":sup}),
+                  type: "post",
+                  contentType:"application/json",
+                  dataType: 'html',
+                  success:function(J){                 	  
+                      $('#allPayAPI').html(J);
+                      $('#__ecpayForm').attr('target', '_blank').submit();
+                      },
+                  error: function (xhr, ajaxOptions, thrownError) {
+                      alert(xhr.status);
+                      alert(thrownError);
+                      console.log(data);
+                  }
+              });
+          }
+   </script>
+
+</body>
+</html>
