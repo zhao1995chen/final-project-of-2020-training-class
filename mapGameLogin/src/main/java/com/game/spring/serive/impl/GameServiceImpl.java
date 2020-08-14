@@ -153,6 +153,20 @@ public class GameServiceImpl implements GameService {
 		}
 	}
 
+	@Transactional(readOnly = true)
+	@Override
+	public PersonResultVO checkNametest(PersonVO person) {
+		PersonResultVO result = new PersonResultVO();
+		result.setUsername(person.getUsername());
+		Person existedPerson = personDao.findByUsername(person.getUsername());
+		if (existedPerson != null) {
+			result.setStatus(true);
+			return result;
+		} else {
+			result.setStatus(false);
+			return result;
+		}
+	}
 	// 信箱驗證
 	public int activeUser1(String code) {
 		int num = 0;

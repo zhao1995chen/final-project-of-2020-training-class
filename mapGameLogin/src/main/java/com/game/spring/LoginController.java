@@ -33,6 +33,12 @@ public class LoginController {
 	public List<PersonVO> getAllPerson() {
 		return gameService.getAllPerson();
 	}
+	@ResponseStatus(value = HttpStatus.OK)
+	@RequestMapping(value = "/checkNametest", method = RequestMethod.GET, produces = "application/json")
+	@ResponseBody
+	public PersonResultVO checkNametest(@RequestBody PersonVO p) {
+		return gameService.checkNametest(p);
+	}	
 	@CrossOrigin(origins = "http://localhost:8080")
 	@ResponseStatus(value = HttpStatus.OK)
 	@RequestMapping(value = "/register", method = RequestMethod.POST, produces = "application/json")

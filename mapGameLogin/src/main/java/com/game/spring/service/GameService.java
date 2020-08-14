@@ -15,6 +15,8 @@ public interface GameService {
 	
 	public PersonResultVO checkName(PersonVO p);
 	
+	public PersonResultVO checkNametest(PersonVO p);
+	
 	public PersonResultVO changePassword(PersonVO p);
 	
 	public boolean activeUser(String code);
