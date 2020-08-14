@@ -59,8 +59,8 @@ public class WebConfig implements WebMvcConfigurer {
 		try {
 			dbs.setDriverClassName("com.mysql.cj.jdbc.Driver");
 			dbs.setUrl(
-					"jdbc:mysql://localhost:3306/mapgame?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC");
-			dbs.setUsername("root");
+					"jdbc:mysql://10.10.1.130:3306/mapgame?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC");
+			dbs.setUsername("newuser");
 			dbs.setPassword("1234");
 			dbs.setMaxTotal(100);
 			dbs.setMaxIdle(1);
