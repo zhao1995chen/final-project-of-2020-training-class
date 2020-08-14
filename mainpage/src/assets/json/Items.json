@@ -1,0 +1,102 @@
+[
+	{
+		"iid" : 1,
+		"name" : "炸彈箱",
+		"content" : "content1",
+		"payment" : 10000,
+		"weight" : 400,
+		"exp" : 1,
+		"sd" : 0,
+		"itemlevel" : 3
+	},
+	{
+		"iid" : 2,
+		"name" : "大頭菜",
+		"content" : "content2",
+		"payment" : 500,
+		"weight" : 1000,
+		"exp" : 10,
+		"sd" : 1,
+		"itemlevel" : 2
+	},
+	{
+		"iid" : 3,
+		"name" : "金幣箱",
+		"content" : "content3",
+		"payment" : 100000,
+		"weight" : 100,
+		"exp" : 1,
+		"sd" : 0,
+		"itemlevel" : 3
+	},
+	{
+		"iid" : 4,
+		"name" : "紅包袋",
+		"content" : "content4",
+		"payment" : 1000,
+		"weight" : 1000,
+		"exp" : 3,
+		"sd" : 1,
+		"itemlevel" : 2
+	},
+	{
+		"iid" : 5,
+		"name" : "小石子",
+		"content" : "content5",
+		"payment" : 1,
+		"weight" : 10000,
+		"exp" : 100,
+		"sd" : 50,
+		"itemlevel" : 1
+	},
+	{
+		"iid" : 6,
+		"name" : "素材1",
+		"content" : "content6",
+		"payment" : 888,
+		"weight" : 5000,
+		"exp" : 30,
+		"sd" : 10,
+		"itemlevel" : 1
+	},
+	{
+		"iid" : 7,
+		"name" : "素材2",
+		"content" : "content7",
+		"payment" : 888,
+		"weight" : 5000,
+		"exp" : 30,
+		"sd" : 10,
+		"itemlevel" : 1
+	},
+	{
+		"iid" : 8,
+		"name" : "素材3",
+		"content" : "content8",
+		"payment" : 888,
+		"weight" : 5000,
+		"exp" : 30,
+		"sd" : 10,
+		"itemlevel" : 1
+	},
+	{
+		"iid" : 9,
+		"name" : "素材4",
+		"content" : "content9",
+		"payment" : 888,
+		"weight" : 5000,
+		"exp" : 30,
+		"sd" : 10,
+		"itemlevel" : 1
+	},
+	{
+		"iid" : 10,
+		"name" : "素材5",
+		"content" : "content10",
+		"payment" : 888,
+		"weight" : 5000,
+		"exp" : 30,
+		"sd" : 10,
+		"itemlevel" : 1
+	}
+]
