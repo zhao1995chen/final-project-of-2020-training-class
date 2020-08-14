@@ -1,23 +1,24 @@
 <template>
   <div id="app">
-    <div class="row no-gutters">
-      <!-- 顯示地圖和站點 -->
-      <div class="col">
-        <div id="map"></div>
-      </div>
-    </div>
+    <!-- 顯示地圖和站點 -->
+    <div id="map"></div>
+    <Sidebar />
   </div>
 </template>
 
 <script>
 import L from 'leaflet';
-import shop from './assets/image/location/png/location(13).png';
-import ShopItems from './assets/json/Items.json';
+import Sidebar from '@/components/Sidebar.vue';
+import shop from '@/assets/image/location/png/location(13).png';
+import ShopItems from '@/assets/json/Items.json';
 
 const axios = require('axios');
 
 export default {
   name: 'App',
+  components: {
+    Sidebar,
+  },
   data: () => ({
     postOffices: [],
     shopItems: [],
@@ -96,6 +97,7 @@ export default {
     },
     getShopItems() {
       this.shopItems = Object.keys(ShopItems).map((key) => ShopItems[key]);
+      // eslint-disable-next-line
       console.log(this.shopItems);
     },
     showShop() {
@@ -129,7 +131,9 @@ h1, h2, h3, h4, h5, h6, p, button {
 
 #map {
   height: 100vh;
+  width: calc(100vw - 100px);
   position: relative;
+  float: left;
 }
 
 .itemContent {
