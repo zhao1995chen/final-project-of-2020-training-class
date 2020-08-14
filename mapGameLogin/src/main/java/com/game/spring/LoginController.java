@@ -27,6 +27,7 @@ public class LoginController {
 	@Autowired
 	private GameService gameService;
 
+	
 	@ResponseStatus(value = HttpStatus.OK)
 	@RequestMapping(value = "/get", method = RequestMethod.GET, produces = "application/json")
 	public List<PersonVO> getAllPerson() {

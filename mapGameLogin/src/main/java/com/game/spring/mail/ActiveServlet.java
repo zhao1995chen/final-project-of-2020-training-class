@@ -23,7 +23,8 @@ public class ActiveServlet extends HttpServlet {
 		if(GameService.activeUser(code)){
 			request.getRequestDispatcher("/welcome.jsp").forward(request, response);
 		} else if(GameService.checkUser(code)) {
-			request.getRequestDispatcher("/welcome.jsp").forward(request, response);
+			request.getRequestDispatcher("/login/get").forward(request, response);
+			//response.sendRedirect("http://localhost:8080/Resetpass?username="+code);
 		}else{
 			request.getRequestDispatcher("/fail.jsp").forward(request, response);
 		}

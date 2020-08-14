@@ -109,17 +109,22 @@ public class GameServiceImpl implements GameService {
 	}
 
 	// 檢查名子
-	public ResultSet checkUser1(String name) {
+	public Person checkUser1(String name) {
 		try {
+			Person p =null;
 			Connection conn = DBUtil.getConnection();
 			PreparedStatement ps =conn.prepareStatement("select * from person where username=?");
             ps.setString(1, name); 
             ResultSet rs = ps.executeQuery();
-            return rs;	
+            if (rs.next()) {
+            	p = new Person();
+            	p.setUsername(rs.getString("username"));          	
+            }
+            return p;                    	
 		} catch (SQLException e) {
 			e.printStackTrace();
+			return null;
 		}
-		return null;
 
 	}
 	@Transactional(readOnly = true)
