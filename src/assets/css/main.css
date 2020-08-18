@@ -1,0 +1,26 @@
+/* 圖片類型 顏色類型 樣式類型都在這裡運作 引用 使用
+   建議集中管理(html標籤的圖片除外)
+*/
+
+/* 
+    css強度比較
+    1. 最低等 html 元素或稱為標籤 Ex: <a> <div> <p> <span>...等
+    2. 中低等 class ; 特性為可重複引用
+    3. 中等   id Ex: <div id="app"></div>; 在css寫法為 #app{...Css屬性}; 特性為唯一值 不能重複引用
+    4. 高等 style Ex: <div id="app" style="width:100px"></div>; 
+    5. 最高級 (危險 不建議使用) ex: .class{ width:200px !important } ; 只有important 才能覆蓋important
+    如果不能覆蓋 請組合1~4級
+
+    最常使用組合 複合層級 推薦使用的等級 好覆蓋 不易壞掉 如果有，可能語法寫錯
+    .testClass div{...}
+    class 名為testClass 且底下所有的div 都會更改到Css 
+*/
+
+*{
+    /* 所有元素(html)的(可能不包含到套件，如果套件有設定css層級強度比元素強的話)
+     外邊框距離 內邊框距離  以及點選後的外框 取消
+     */
+    margin: 0;
+    padding: 0;
+    outline: none;
+}
