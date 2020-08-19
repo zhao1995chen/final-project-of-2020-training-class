@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 2020/7/24 ?U?? 11:37:36 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.test.mavendemo1.MoneyTable" table="money_table" catalog="bookstore" optimistic-lock="version">
+        <id name="orderId" type="string">
+            <column name="orderId" />
+            <generator class="assigned" />
+        </id>
+        <property name="productName" type="string">
+            <column name="productName" not-null="true" />
+        </property>
+        <property name="amount" type="int">
+            <column name="amount" not-null="true" />
+        </property>
+        <property name="productImageUrl" type="string">
+            <column name="productImageUrl" not-null="true" />
+        </property>
+        <property name="confirmUrl" type="string">
+            <column name="confirmUrl" not-null="true" />
+        </property>
+        <property name="currency" type="string">
+            <column name="currency" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
