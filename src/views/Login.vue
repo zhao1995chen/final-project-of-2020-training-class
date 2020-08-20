@@ -1,5 +1,5 @@
 <template>
-  <div class="testHome">
+  <div class="testHome" v-loading="loading">
     <div>
       <img src="../assets/login.jpg">
     </div>
@@ -8,7 +8,7 @@
         <label for="account">帳號：</label>
         <input name="account" type="text" v-model="loginData.account">
         <label for="account">密碼：</label>
-        <input name="account" type="text" v-model="loginData.password">
+        <input type="password" name="password" v-model="loginData.password">
         <div class="logBlocks">
           <button class="log" @click="login">登入</button>
           <button class="log" @click="forgetPassword">忘記密碼</button>
@@ -19,44 +19,66 @@
 </template>
 
 <script>
+import api from './../service/user-service'
+import util from './../common/utils'
 export default {
   name: 'Login',
-    data() {
-       return {
-           loginInit:{
-           account:'',
-           password:'',
-         },
-         loginData:{}
-       }
-     },
-     created(){
-       this.resetInput();
-     },
-     methods:{
-       login(){
-      console.log(this.loginData);
-      if(this.loginData.account == ''){
-        alert('請輸入帳號!');
-        return;
-      }
-      else if(this.loginData.password == ''){
-        alert('請輸入密碼!');
-        return;
-      }
-      alert('登入');
+  data: () => ({
+    loading:false,
+    loginInit: {
+      account: "",
+      password: "",
     },
-    resetInput(){
+    loginData: {},
+  }),
+  created() {
+    this.loginData = JSON.parse(JSON.stringify(this.loginInit));
+  },
+  methods: {
+    login() {
+      console.log(this.loginData);
+      if (this.loginData.account == "") {
+        this.$message.error("請輸入帳號!");
+        return;
+      }
+      if (this.loginData.password == "") {
+        this.$message.error("請輸入密碼!");
+        return;
+      }
+      this.loading = true;
+      api.getUser().then(response => {
+        if (response.status == 200) {
+          this.$message.success("登入成功，準備進入遊戲!");
+          util.setCookie("username", response.data.username, 15);
+          this.loginSuccess();
+          return;
+        }
+        this.$message.error("登入異常");
+        
+      })
+      .catch(err => {
+        console.log(err);
+        this.$message.error("系統異常");
+      }).finally(() => {
+        this.loading = false;
+      })
+    },
+    resetInput() {
       this.loginData = JSON.parse(JSON.stringify(this.loginInit));
     },
-    forgetPassword(){
-      this.$router.push('/Forget')
-    }
-  }
-}
+    loginSuccess() {
+      this.$router.push("/change");
+    },
+    forgetPassword() {
+      this.$router.push("/forget");
+    },
+  },
+};
 </script>
+
 <style scoped>
 .testHome{
+  font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
   position: relative;
   display: flex;
   align-items: center;
@@ -75,13 +97,14 @@ export default {
 .acclogin{
   position: absolute;
   right: 400px;
-  width: 120px;
+  width: 100px;
   height: 80px;
   font-size: 30px;
   margin-left : 30px;
 }
 
 .testHome .log{
+  font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
   background-color:orangered;
   border-radius: 12px;
   color:aliceblue;

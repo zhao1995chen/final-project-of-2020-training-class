@@ -25,6 +25,8 @@ export default {
 }
 
 .testHome{
+  font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
+  font-size: 20px;
   position: relative;
   display: flex;
   align-items: center;
@@ -34,6 +36,7 @@ export default {
 }
 
 .testHome .btn{
+  font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
   background-color: hotpink;
   border-radius: 12px;
   color: aliceblue;

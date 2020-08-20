@@ -6,6 +6,7 @@ import NewAccount from '../views/NewAccount.vue'
 import Forget from '../views/forget.vue'
 import success from '../views/success.vue'
 import Resetpass from '../views/Resetpass.vue'
+import cart from '../Vue_cart/cart.vue'
 
 //步驟1. 建立頁面且引用
 import pageExample from '../views/pageExample.vue'
@@ -54,6 +55,16 @@ Vue.use(VueRouter)
     path: '/Resetpass',// 設定新密碼
     name: 'Resetpass',
     component: () => import('../views/Resetpass.vue')
+  },
+  {
+    path: '/cart',// 儲值頁面
+    name: 'cart',
+    component: () => import('../Vue_cart/cart.vue')
+  },
+  {
+    path: '/shopCar',// 購物車
+    name: 'shopCar',
+    component: () => import('../Vue_cart/shopCar.vue')
   },
 
 ]
