@@ -7,7 +7,7 @@
 			<li>
 				<h4>沒鑽石買寶物啦~~快來儲值一下，小夥伴們需要你///</h4>
 			</li>
-				<h4>訂單編號: <el-input :disabled="disabled" clearable v-model="this.form.number" placeholder="訂單編號" style="width: 150px;">
+				<h4>訂單編號: <el-input :disabled="true" clearable v-model="this.form.number" placeholder="訂單編號" style="width: 150px;">
 				</el-input></h4>
 				<li>
 					<h4 style="margin-bottom: 20px;">儲值金額</h4>
