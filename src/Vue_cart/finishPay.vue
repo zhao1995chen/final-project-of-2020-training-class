@@ -1,9 +1,9 @@
 <template>
-<!-- // 註冊成功 -->
+<!-- // 付款成功 -->
   <div>
     <div class="showTime">{{showSecond}}秒，回到首頁，請重新登入!</div>
-    <div class="success">
-        <img class="image" src="../assets/success.jpg">
+    <div class="finishPay">
+        <img class="image" src="../assets/detosit_thanks.jpg">
     </div>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
 </script>
 
 <style scoped>
-.success{
+.finishPay{
   position: relative;
   display: flex;
   align-items: center;
@@ -57,10 +57,10 @@ export default {
 }
 .showTime{
   font-size: 30px;  
-  color:yellow;
+  color:chartreuse;
   position: absolute;
   z-index: 1;
   margin: 0px -50px 0px 0px;
-  transform: translate3d(37vw, 25vh, 0px);
+  transform: translate3d(28vw, 25vh, 0px);
 }
 </style>

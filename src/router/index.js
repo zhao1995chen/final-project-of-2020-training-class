@@ -6,7 +6,9 @@ import NewAccount from '../views/NewAccount.vue'
 import Forget from '../views/forget.vue'
 import success from '../views/success.vue'
 import Resetpass from '../views/Resetpass.vue'
-import cart from '../Vue_cart/cart.vue'
+import money from '../Vue_cart/money.vue'
+import shopCar from '../Vue_cart/shopCar.vue'
+import finishPay from '../Vue_cart/finishPay.vue'
 
 //步驟1. 建立頁面且引用
 import pageExample from '../views/pageExample.vue'
@@ -57,14 +59,19 @@ Vue.use(VueRouter)
     component: () => import('../views/Resetpass.vue')
   },
   {
-    path: '/cart',// 儲值頁面
-    name: 'cart',
-    component: () => import('../Vue_cart/cart.vue')
+    path: '/money',// 儲值頁面
+    name: 'money',
+    component: () => import('../Vue_cart/money.vue')
   },
   {
-    path: '/shopCar',// 購物車
+    path: '/shopCar',// 選角
     name: 'shopCar',
     component: () => import('../Vue_cart/shopCar.vue')
+  },
+  {
+    path: '/finishPay',// 付款成功
+    name: 'finishPay',
+    component: () => import('../Vue_cart/finishPay.vue')
   },
 
 ]
