@@ -1,11 +1,9 @@
 <template>
   <div v-loading="loading" class="flexbox">
     <div>
-      <img src="../assets/role/role.jpg">
-    </div>
+      <img src="../assets/role/role.jpg"></div>
     <div class="panel">
-      <div class="submitbox">
-				</div>
+      <div class="submitbox"></div>
       <span v-for="item in dataList" :key="item.id" class="panel-number">
         <img width="100" :src="item.imgUrl">
         <div>
@@ -66,7 +64,7 @@ export default {
           number:'C',
           imgUrl:require('../assets/role/monsters2(80).png'),
         },
-     
+
         {
           name:'superHero',
           number:'D',
@@ -92,28 +90,30 @@ export default {
 <style scoped>
   .panel-number {
     font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
-    width: 210px;
+    width: 100px;
     border: 1px solid cadetblue;
     padding: 10px;
-    margin: 5px;
+    margin: 18px;
     display: inline-block;
-    transition:All 0.5s ease;
+    /* transition:All 0.5s ease; */
     cursor: pointer;
   }
   .panel-number:hover{
     font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
-      transform:scale(1.1);
+    transform:scale(1.1);
   }
   .panel{
-    width: 70%;
+    position: absolute;
+    margin: 0px -50px -15px 0px;
+    transform: translate3d(0px, 40px, 0px);
   }
   .flexbox{
-  font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 90vw;
-  height: 90vh;
+    font-family: arial,"Microsoft JhengHei","微軟正黑體",sans-serif !important;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
 }
 </style>
